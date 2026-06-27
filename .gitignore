@@ -1,0 +1,86 @@
+# =========================
+# PYTHON
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# =========================
+# VIRTUAL ENV
+# =========================
+venv/
+env/
+ENV/
+.venv/
+
+# =========================
+# DJANGO
+# =========================
+*.log
+db.sqlite3
+db.sqlite3-journal
+
+# migrations (opcional si NO quieres versionarlas)
+# Si estás en equipo, normalmente SÍ se versionan migrations
+# */migrations/*.pyc
+# */migrations/__pycache__/
+
+# =========================
+# ENV FILES (MUY IMPORTANTE)
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# MEDIA (uploads de usuarios)
+# =========================
+media/
+!media/.gitkeep
+
+# =========================
+# STATIC FILES (si usas collectstatic local)
+# =========================
+staticfiles/
+static_root/
+
+# =========================
+# DJANGO LOCAL SETTINGS
+# =========================
+local.py
+
+# =========================
+# IDE / EDITORES
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# =========================
+# TEST / COVERAGE
+# =========================
+htmlcov/
+.coverage
+coverage.xml
+*.cover
+.pytest_cache/
+
+# =========================
+# CELERY / CACHE (si usas luego)
+# =========================
+celerybeat-schedule
+celerybeat.pid
+
+# =========================
+# SYSTEM FILES
+# =========================
+Thumbs.db
