@@ -56,6 +56,7 @@ INSTALLED_APPS = [
 
     # Third party
     'rest_framework',
+    'drf_spectacular',
     # Cuando activas blacklist:
     #     Django guarda tokens en base de datos
     #     Puedes “bloquear” refresh tokens
@@ -67,6 +68,7 @@ INSTALLED_APPS = [
     'apps.core',
     'apps.personas',
     'apps.usuarios',
+    'apps.auditoria',
     # 'apps.products',
 ]
 
@@ -167,10 +169,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # ======================
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'apps.usuarios.authentication.jwt.CookieJWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_SCHEMA_CLASS': ( # Para generar documentación automática con drf-spectacular
+        'drf_spectacular.openapi.AutoSchema'
     ),
 }
 
@@ -183,8 +188,6 @@ SIMPLE_JWT = {
 
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
-
-    'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
 # ======================
