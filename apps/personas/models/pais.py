@@ -1,7 +1,7 @@
 from django.db import models
 from apps.core.models import ModeloBase
 from django.core.validators import RegexValidator
-
+from apps.core.managers.active_manager import ActiveManager
 
 class Pais(ModeloBase):
 
@@ -42,6 +42,10 @@ class Pais(ModeloBase):
         verbose_name='Longitud del número de celular',
         help_text='Cantidad de dígitos que debe tener un número de celular en este país.'
     )
+
+    objects = ActiveManager()
+
+    all_objects = models.Manager()
 
     class Meta:
         db_table = "pais"

@@ -2,7 +2,7 @@ from django.db import models
 from apps.core.models import ModeloBase
 from .cliente import Cliente
 from .persona_natural import PersonaNatural
-
+from apps.core.managers.active_manager import ActiveManager
 
 class ClienteNatural(ModeloBase):
     
@@ -21,6 +21,10 @@ class ClienteNatural(ModeloBase):
         related_name='cliente_natural',
         help_text='Datos personales del cliente (nombres, apellidos, documento de identidad, contacto, etc.).'
     )
+
+    objects = ActiveManager()
+
+    all_objects = models.Manager()
 
     class Meta:
         db_table = "cliente_natural"

@@ -1,6 +1,7 @@
 from django.db import models
 from apps.core.models import ModeloBase
 from django.core.validators import RegexValidator
+from apps.core.managers.active_manager import ActiveManager
 
 class Permiso(ModeloBase):
 
@@ -23,6 +24,10 @@ class Permiso(ModeloBase):
         help_text='Describe la acción o funcionalidad que habilita este permiso dentro del sistema.'
     )
 
+    objects = ActiveManager()
+
+    all_objects = models.Manager()
+    
     class Meta:
         db_table = "permiso"
         ordering = ["codigo"]

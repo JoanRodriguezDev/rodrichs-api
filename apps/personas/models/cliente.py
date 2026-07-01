@@ -1,6 +1,6 @@
 from django.db import models
 from apps.core.models import ModeloBase
-
+from apps.core.managers.active_manager import ActiveManager
 
 class Cliente(ModeloBase):
     
@@ -16,6 +16,10 @@ class Cliente(ModeloBase):
         default=Tipo.NATURAL,
         help_text='Define el tipo de cliente registrado en el sistema (natural, jurídico o varios), lo que determina la estructura de datos asociada.'
     )
+
+    objects = ActiveManager()
+
+    all_objects = models.Manager()
 
     class Meta:
         db_table = "cliente"

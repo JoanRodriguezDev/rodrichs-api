@@ -2,7 +2,7 @@ from django.db import models
 from apps.core.models import ModeloBase
 from .cliente import Cliente
 from .persona_juridica import PersonaJuridica
-
+from apps.core.managers.active_manager import ActiveManager
 
 class ClienteJuridico(ModeloBase):
 
@@ -21,6 +21,10 @@ class ClienteJuridico(ModeloBase):
         related_name='cliente_juridico',
         help_text='Información legal de la empresa cliente (RUC, razón social, estado SUNAT, dirección fiscal, etc.).'
     )
+
+    objects = ActiveManager()
+
+    all_objects = models.Manager()
 
     class Meta:
         db_table = "cliente_juridico"

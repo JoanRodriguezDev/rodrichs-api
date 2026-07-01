@@ -3,7 +3,7 @@ from apps.core.models import ModeloBase
 from .tipo_documento_identidad import TipoDocumentoIdentidad
 from .pais import Pais
 from django.core.validators import RegexValidator
-
+from apps.core.managers.active_manager import ActiveManager
 
 class PersonaNatural(ModeloBase):
 
@@ -66,6 +66,10 @@ class PersonaNatural(ModeloBase):
         related_name='personas_naturales',
         help_text='Tipo de documento de identidad asociado a la persona (DNI, CE, pasaporte, etc.).'
     )
+
+    objects = ActiveManager()
+
+    all_objects = models.Manager()
 
     class Meta:
         db_table = "persona_natural"

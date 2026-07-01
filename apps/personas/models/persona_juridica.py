@@ -1,6 +1,7 @@
 from django.db import models
 from apps.core.models import ModeloBase
 from django.core.validators import RegexValidator
+from apps.core.managers.active_manager import ActiveManager
 
 class PersonaJuridica(ModeloBase):
     
@@ -78,6 +79,10 @@ class PersonaJuridica(ModeloBase):
         max_length=10,
         help_text='Código ubigeo oficial utilizado por SUNAT para identificar la ubicación geográfica.'
     )
+
+    objects = ActiveManager()
+
+    all_objects = models.Manager()
 
     class Meta:
         db_table = "persona_juridica"

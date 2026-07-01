@@ -1,6 +1,7 @@
 from django.db import models
 from apps.core.models import ModeloBase
 from django.core.validators import MinValueValidator
+from apps.core.managers.active_manager import ActiveManager
 
 class Empleado(ModeloBase):
 
@@ -61,6 +62,10 @@ class Empleado(ModeloBase):
         related_name='empleado',
         help_text='Persona natural asociada al empleado, que contiene sus datos personales y de identificación.'
     )
+
+    objects = ActiveManager()
+
+    all_objects = models.Manager()
 
     class Meta:
         db_table = "empleado"

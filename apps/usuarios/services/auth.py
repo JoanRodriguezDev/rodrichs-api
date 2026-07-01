@@ -3,7 +3,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError
 
 
-def generate_tokens_for_user(user):
+def generar_token_para_usuario(user):
     refresh = RefreshToken.for_user(user)
 
     return {
@@ -11,7 +11,7 @@ def generate_tokens_for_user(user):
         "refresh": str(refresh),
     }
 
-def refresh_access_token(refresh_token):
+def refrescar_access_token(refresh_token):
     refresh = RefreshToken(refresh_token)
 
     return {

@@ -1,6 +1,7 @@
 from django.db import models
 from apps.core.models import ModeloBase
 from .permiso import Permiso
+from apps.core.managers.active_manager import ActiveManager
 
 class Rol(ModeloBase):
 
@@ -19,6 +20,11 @@ class Rol(ModeloBase):
         related_name="roles",
         help_text='Conjunto de permisos asociados a este rol que determinan las acciones que puede realizar el usuario.'
     )
+    
+    objects = ActiveManager()
+
+    all_objects = models.Manager()
+
     class Meta:
         db_table = "rol"
         ordering = ["nombre"]

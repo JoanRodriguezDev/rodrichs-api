@@ -4,11 +4,11 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import serializers
 from apps.auditoria.models import Auditoria
-from apps.core.utils.auditoria import registrar_auditoria
+from apps.core.utils.eventos_auditoria import registrar_evento
 from apps.usuarios.serializers.auth import LoginSerializer
 from apps.usuarios.services.auth import (
-    generate_tokens_for_user,
-    refresh_access_token,
+    generar_token_para_usuario,
+    refrescar_access_token,
     blacklist_refresh_token,
 )
 
@@ -25,7 +25,7 @@ class LoginView(APIView):
 
         except serializers.ValidationError:
 
-            registrar_auditoria(
+            registrar_evento(
                 accion=Auditoria.Accion.LOGIN_FAILED,
                 request=request,
                 metadata={
@@ -38,13 +38,13 @@ class LoginView(APIView):
 
         user = serializer.validated_data["user"]
 
-        registrar_auditoria(
+        registrar_evento(
             accion=Auditoria.Accion.LOGIN,
             request=request,
             usuario=user,
         )
 
-        tokens = generate_tokens_for_user(user)
+        tokens = generar_token_para_usuario(user)
 
         response = Response(
             {"message": "Login exitoso"},
@@ -95,7 +95,7 @@ class RefreshView(APIView):
                 status=status.HTTP_401_UNAUTHORIZED,
             )
 
-        tokens = refresh_access_token(
+        tokens = refrescar_access_token(
             refresh_token
         )
 
@@ -131,7 +131,7 @@ class LogoutView(APIView):
             "refresh_token"
         )
 
-        registrar_auditoria(
+        registrar_evento(
             accion=Auditoria.Accion.LOGOUT,
             request=request,
             usuario=request.user,

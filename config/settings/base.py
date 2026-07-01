@@ -65,10 +65,11 @@ INSTALLED_APPS = [
     'corsheaders',
 
     # Local apps (ejemplo)
+    'apps.auditoria',
     'apps.core',
     'apps.personas',
     'apps.usuarios',
-    'apps.auditoria',
+    
     # 'apps.products',
 ]
 

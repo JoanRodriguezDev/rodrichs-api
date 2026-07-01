@@ -2,6 +2,7 @@ from django.db import models
 from apps.core.models import ModeloBase
 from .proveedor import Proveedor
 from .persona_natural import PersonaNatural
+from apps.core.managers.active_manager import ActiveManager
 
 class ProveedorNatural(ModeloBase):
     
@@ -20,6 +21,10 @@ class ProveedorNatural(ModeloBase):
         related_name='proveedor_natural',
         help_text='Datos personales del proveedor (DNI, nombres, apellidos, etc.) asociados a este proveedor natural.'
     )
+
+    objects = ActiveManager()
+
+    all_objects = models.Manager()
 
     class Meta:
         db_table = "proveedor_natural"

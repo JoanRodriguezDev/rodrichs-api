@@ -2,6 +2,7 @@ from django.db import models
 from apps.core.models import ModeloBase
 from .proveedor import Proveedor
 from .persona_juridica import PersonaJuridica
+from apps.core.managers.active_manager import ActiveManager
 
 class ProveedorJuridico(ModeloBase):
 
@@ -20,6 +21,10 @@ class ProveedorJuridico(ModeloBase):
         related_name='proveedor_juridico', 
         help_text='Información legal de la empresa proveedora (RUC, razón social, estado SUNAT, dirección fiscal, etc.).'
     )
+
+    objects = ActiveManager()
+
+    all_objects = models.Manager()
 
     class Meta:
         db_table = "proveedor_juridico"

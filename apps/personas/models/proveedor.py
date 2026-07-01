@@ -1,5 +1,6 @@
 from django.db import models
 from apps.core.models import ModeloBase
+from apps.core.managers.active_manager import ActiveManager
 
 class Proveedor(ModeloBase):
     class Tipo(models.TextChoices):
@@ -14,6 +15,10 @@ class Proveedor(ModeloBase):
         help_text='Define si el proveedor es una persona natural, jurídica o un proveedor genérico (varios). Esto determina qué datos adicionales se deben registrar.'
     )
 
+    objects = ActiveManager()
+
+    all_objects = models.Manager()
+    
     class Meta:
         db_table = "proveedor"
         ordering = ["id"]

@@ -1,5 +1,6 @@
 from django.db import models
 from apps.core.models import ModeloBase
+from apps.core.managers.active_manager import ActiveManager
 
 class TipoDocumentoIdentidad(ModeloBase):
 
@@ -21,6 +22,10 @@ class TipoDocumentoIdentidad(ModeloBase):
         blank=True, 
         help_text='Descripción opcional que detalla el uso o alcance del tipo de documento dentro del sistema'
     )
+
+    objects = ActiveManager()
+
+    all_objects = models.Manager()
 
     class Meta:
         db_table = "tipo_documento_identidad"

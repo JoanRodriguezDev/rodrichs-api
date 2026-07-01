@@ -9,25 +9,25 @@ from apps.usuarios.views.auth import (
 
 urlpatterns = [
     path(
-        "auth/login/",
+        "usuarios/auth/login/",
         LoginView.as_view(),
         name="login",
     ),
 
     path(
-        "auth/me/",
+        "usuarios/auth/me/",
         MeView.as_view(),
         name="me",
     ),
 
     path(
-        "auth/refresh/",
+        "usuarios/auth/refresh/",
         RefreshView.as_view(),
         name="refresh",
     ),
 
     path(
-        "auth/logout/",
+        "usuarios/auth/logout/",
         LogoutView.as_view(),
         name="logout",
     ),

@@ -1,10 +1,12 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from apps.core.models import ModeloBase
+from apps.core.models import ModeloMarcaTiempo
 from .rol import Rol
 from .empleado import Empleado
+from django.contrib.auth.models import UserManager
+from apps.core.managers.active_user_manager import ActiveUserManager
 
-class Usuario(AbstractUser, ModeloBase):
+class Usuario(AbstractUser, ModeloMarcaTiempo):
 
     rol = models.ForeignKey(
         Rol,
@@ -25,6 +27,10 @@ class Usuario(AbstractUser, ModeloBase):
         null=True,
         help_text='Empleado del sistema asociado a este usuario. Permite vincular la cuenta de acceso con la información laboral.'
     )
+
+    objects = ActiveUserManager()
+
+    all_objects = UserManager()
 
     class Meta:
         db_table = "usuario"
