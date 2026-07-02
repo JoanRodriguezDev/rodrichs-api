@@ -9,4 +9,8 @@ urlpatterns = [
         "",
         include("apps.personas.urls")
     ),
+    path(
+        "",
+        include("apps.catalogo.urls")
+    ),
 ]
