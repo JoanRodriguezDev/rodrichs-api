@@ -1,11 +1,21 @@
-from django.urls import path
-from apps.usuarios.views.auth import (
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views.auth import (
     LoginView,
     MeView,
     RefreshView,
     LogoutView,
 )
+from .views.empleado import EmpleadoViewSet
+from .views.permiso import PermisoViewSet
+from .views.rol import RolViewSet
+from .views.usuario import UsuarioViewSet
 
+router = DefaultRouter()
+router.register(r'empleados',EmpleadoViewSet,basename='empleados')
+router.register(r'permisos',PermisoViewSet,basename='permisos')
+router.register(r'roles',RolViewSet,basename='roles')
+router.register(r'usuarios',UsuarioViewSet,basename='usuarios')
 
 urlpatterns = [
     path(
@@ -31,6 +41,8 @@ urlpatterns = [
         LogoutView.as_view(),
         name="logout",
     ),
+
+    path('',include(router.urls)),
 ]
 
 #Endpoints disponibles:
