@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'apps.personas',
     'apps.usuarios',
     'apps.catalogo',
+    'apps.caja',
     
     # 'apps.products',
 ]

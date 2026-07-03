@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Caja, CajaDetalle
 
-# Register your models here.
+admin.site.register(Caja)
+admin.site.register(CajaDetalle)
