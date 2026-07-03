@@ -1,0 +1,1 @@
+from .traslado import Traslado

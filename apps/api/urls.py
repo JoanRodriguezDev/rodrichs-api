@@ -25,4 +25,8 @@ urlpatterns = [
         "",
         include("apps.inventario.urls")
     ),
+    path(
+        "",
+        include("apps.traslado.urls")
+    ),
 ]

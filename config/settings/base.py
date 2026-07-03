@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     'apps.caja',
     'apps.locaciones',
     'apps.inventario',
+    'apps.traslado',
     # 'apps.products',
 ]
 
