@@ -49,3 +49,15 @@ class CajaUpdateSerializer(serializers.ModelSerializer):
             'descripcion',
             'estado',
         )
+
+        # GET /api/v1/tipo-documento/ 
+# consultar todo los datos
+
+# GET /api/v1/tipo-documento/{id}/ 
+# consultar un dato en específico
+
+# POST /api/v1/tipo-documento/ 
+# crear un nuevo dato
+
+# PUT / PATCH /api/v1/tipo-documento/{id} 
+# actualizar completo o parcialmente un elemento

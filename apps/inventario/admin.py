@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Movimiento, MovimientoDetalle, Kardex
 
-# Register your models here.
+admin.site.register(Movimiento)
+admin.site.register(MovimientoDetalle)
+admin.site.register(Kardex)

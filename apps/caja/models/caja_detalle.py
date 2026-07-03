@@ -2,6 +2,7 @@ from django.db import models
 from apps.core.models import ModeloBase
 from apps.core.managers.active_manager import ActiveManager
 from .caja import Caja
+from django.utils import timezone
 
 class CajaDetalle(ModeloBase):
 
@@ -22,7 +23,7 @@ class CajaDetalle(ModeloBase):
     )
 
     fecha_apertura = models.DateTimeField(
-        auto_now_add=True,
+        default=timezone.now,
         verbose_name="Fecha de apertura",
         help_text="Fecha y hora en que se realizó la apertura de la caja."
     )

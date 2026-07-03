@@ -21,4 +21,8 @@ urlpatterns = [
         "",
         include("apps.locaciones.urls")
     ),
+    path(
+        "",
+        include("apps.inventario.urls")
+    ),
 ]
