@@ -29,4 +29,8 @@ urlpatterns = [
         "",
         include("apps.traslado.urls")
     ),
+    path(
+        "",
+        include("apps.compras.urls")
+    ),
 ]
