@@ -33,4 +33,8 @@ urlpatterns = [
         "",
         include("apps.compras.urls")
     ),
+    path(
+        "",
+        include("apps.ventas.urls")
+    ),
 ]
