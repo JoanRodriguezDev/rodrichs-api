@@ -10,11 +10,11 @@ class RolListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Rol
-        fields = (
-            'id',
-            'nombre',
-            'permisos',
-        )
+        fields = [
+            "id",
+            "nombre",
+            "permisos",
+        ]
 
 # GET /api/v1/roles/{id}/ 
 # consultar un dato en específico
@@ -23,14 +23,14 @@ class RolDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Rol
-        fields = (
-            'id',
-            'nombre',
-            'permisos',
-            'created_at',
-            'updated_at',
-        )
-        read_only_fields = ('created_at', 'updated_at')
+        fields = [
+            "id",
+            "nombre",
+            "permisos",
+            "created_at",
+            "updated_at",
+        ]
+        read_only_fields = ("created_at", "updated_at")
 
 # POST /api/v1/roles/ 
 # crear un nuevo dato
@@ -42,10 +42,10 @@ class RolCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Rol
-        fields = (
-            'nombre',
-            'permisos',
-        )
+        fields = [
+            "nombre",
+            "permisos",
+        ]
 
 # PUT / PATCH /api/v1/roles/{id} 
 # actualizar completo o parcialmente un elemento
@@ -57,7 +57,7 @@ class RolUpdateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Rol
-        fields = (
-            'nombre',
-            'permisos',
-        )
+        fields = [
+            "nombre",
+            "permisos",
+        ]

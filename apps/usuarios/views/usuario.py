@@ -1,5 +1,6 @@
 from apps.core.views import ModeloBaseViewSet
 from apps.core.permissions import TienePermisoRol
+from ..models.usuario import Usuario
 from ..serializers.usuario import (
     UsuarioListSerializer,
     UsuarioDetailSerializer,
@@ -8,6 +9,8 @@ from ..serializers.usuario import (
 )
 
 class UsuarioViewSet(ModeloBaseViewSet):
+
+    queryset = Usuario.objects.all()
 
     permission_classes = [TienePermisoRol]
 

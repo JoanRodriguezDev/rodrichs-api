@@ -9,10 +9,10 @@ class Proveedor(ModeloBase):
         VARIOS = "varios","Varios"
 
     tipo = models.CharField(
-        verbose_name='Tipo de proveedor', 
+        verbose_name="Tipo de proveedor", 
         max_length=10, 
         choices=Tipo.choices, 
-        help_text='Define si el proveedor es una persona natural, jurídica o un proveedor genérico (varios). Esto determina qué datos adicionales se deben registrar.'
+        help_text="Define si el proveedor es una persona natural, jurídica o un proveedor genérico (varios). Esto determina qué datos adicionales se deben registrar."
     )
 
     objects = ActiveManager()

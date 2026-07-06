@@ -10,11 +10,11 @@ class Cliente(ModeloBase):
         VARIOS = "varios", "Varios"
 
     tipo = models.CharField(
-        verbose_name='Tipo de cliente',
+        verbose_name="Tipo de cliente",
         max_length=10,
         choices=Tipo.choices,
         default=Tipo.NATURAL,
-        help_text='Define el tipo de cliente registrado en el sistema (natural, jurídico o varios), lo que determina la estructura de datos asociada.'
+        help_text="Define el tipo de cliente registrado en el sistema (natural, jurídico o varios), lo que determina la estructura de datos asociada."
     )
 
     objects = ActiveManager()

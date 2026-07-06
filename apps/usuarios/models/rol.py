@@ -6,19 +6,19 @@ from apps.core.managers.active_manager import ActiveManager
 class Rol(ModeloBase):
 
     nombre = models.CharField(
-        verbose_name='Nombre Rol', 
+        verbose_name="Nombre Rol", 
         max_length=50, 
         unique=True,
-        help_text='Nombre identificador del rol dentro del sistema (ej: administrador, vendedor, cajero).'
+        help_text="Nombre identificador del rol dentro del sistema (ej: administrador, vendedor, cajero)."
     )
 
     # Relación Many-to-Many con Permiso, para asignar múltiples permisos a un rol
     permisos = models.ManyToManyField(
         Permiso,
-        verbose_name='Permisos asignado al rol',
+        verbose_name="Permisos asignado al rol",
         blank=True,
         related_name="roles",
-        help_text='Conjunto de permisos asociados a este rol que determinan las acciones que puede realizar el usuario.'
+        help_text="Conjunto de permisos asociados a este rol que determinan las acciones que puede realizar el usuario."
     )
     
     objects = ActiveManager()

@@ -10,22 +10,22 @@ class Usuario(AbstractUser, ModeloMarcaTiempo):
 
     rol = models.ForeignKey(
         Rol,
-        verbose_name='Rol',
+        verbose_name="Rol",
         on_delete=models.PROTECT,
-        related_name='usuarios',
+        related_name="usuarios",
         blank=True,
         null=True,
-        help_text='Rol asignado al usuario que define sus permisos dentro del sistema.'
+        help_text="Rol asignado al usuario que define sus permisos dentro del sistema."
     )
 
     empleado = models.OneToOneField(
         Empleado,
-        verbose_name='Empleado',
+        verbose_name="Empleado",
         on_delete=models.PROTECT,
-        related_name='usuario',
+        related_name="usuario",
         blank=True,
         null=True,
-        help_text='Empleado del sistema asociado a este usuario. Permite vincular la cuenta de acceso con la información laboral.'
+        help_text="Empleado del sistema asociado a este usuario. Permite vincular la cuenta de acceso con la información laboral."
     )
 
     objects = ActiveUserManager()

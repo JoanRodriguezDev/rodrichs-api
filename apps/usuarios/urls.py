@@ -12,10 +12,10 @@ from .views.rol import RolViewSet
 from .views.usuario import UsuarioViewSet
 
 router = DefaultRouter()
-router.register(r'empleados',EmpleadoViewSet,basename='empleados')
-router.register(r'permisos',PermisoViewSet,basename='permisos')
-router.register(r'roles',RolViewSet,basename='roles')
-router.register(r'usuarios',UsuarioViewSet,basename='usuarios')
+router.register(r"empleados",EmpleadoViewSet,basename="empleados")
+router.register(r"permisos",PermisoViewSet,basename="permisos")
+router.register(r"roles",RolViewSet,basename="roles")
+router.register(r"usuarios",UsuarioViewSet,basename="usuarios")
 
 urlpatterns = [
     path(
@@ -42,7 +42,7 @@ urlpatterns = [
         name="logout",
     ),
 
-    path('',include(router.urls)),
+    path("",include(router.urls)),
 ]
 
 #Endpoints disponibles:

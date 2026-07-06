@@ -1,5 +1,6 @@
 from apps.core.views import ModeloBaseViewSet
 from apps.core.permissions import TienePermisoRol
+from ..models.producto import Producto
 from ..serializers.producto import (
     ProductoListSerializer,
     ProductoDetailSerializer,
@@ -8,6 +9,8 @@ from ..serializers.producto import (
 )
 
 class ProductoViewSet(ModeloBaseViewSet):
+
+    queryset = Producto.objects.all()
 
     permission_classes = [TienePermisoRol]
 

@@ -9,17 +9,17 @@ class ClienteJuridico(ModeloBase):
     cliente = models.OneToOneField(
         Cliente,
         on_delete=models.PROTECT,
-        verbose_name='Cliente',
-        related_name='cliente_juridico',
-        help_text='Cliente base del sistema que actúa como entidad principal para un cliente de tipo jurídico.'
+        verbose_name="Cliente",
+        related_name="cliente_juridico",
+        help_text="Cliente base del sistema que actúa como entidad principal para un cliente de tipo jurídico."
     )
     
     persona_juridica = models.OneToOneField(
         PersonaJuridica,
         on_delete=models.PROTECT,
-        verbose_name='Persona jurídica',
-        related_name='cliente_juridico',
-        help_text='Información legal de la empresa cliente (RUC, razón social, estado SUNAT, dirección fiscal, etc.).'
+        verbose_name="Persona jurídica",
+        related_name="cliente_juridico",
+        help_text="Información legal de la empresa cliente (RUC, razón social, estado SUNAT, dirección fiscal, etc.)."
     )
 
     objects = ActiveManager()

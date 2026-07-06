@@ -6,58 +6,46 @@ from ..models.caja import Caja
 class CajaListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Caja
-        fields = (
-            'id',
-            'nombre',
-            'descripcion',
-            'estado',
-        )
+        fields = [
+            "id",
+            "nombre",
+            "descripcion",
+            "estado",
+        ]
 
 # GET /api/v1/cajas/{id}/ 
 # consultar un dato en específico
 class CajaDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Caja
-        fields = (
-            'id',
-            'nombre',
-            'descripcion',
-            'estado',
-            'created_at',
-            'updated_at',
-        )
-        read_only_fields = ('created_at', 'updated_at')
+        fields = [
+            "id",
+            "nombre",
+            "descripcion",
+            "estado",
+            "created_at",
+            "updated_at",
+        ]
+        read_only_fields = ("created_at", "updated_at")
 
 # POST /api/v1/cajas/ 
 # crear un nuevo dato
 class CajaCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Caja
-        fields = (
-            'nombre',
-            'descripcion',
-            'estado',
-        )
+        fields = [
+            "nombre",
+            "descripcion",
+            "estado",
+        ]
 
 # PUT / PATCH /api/v1/cajas/{id} 
 # actualizar completo o parcialmente un elemento
 class CajaUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Caja
-        fields = (
-            'nombre',
-            'descripcion',
-            'estado',
-        )
-
-        # GET /api/v1/tipo-documento/ 
-# consultar todo los datos
-
-# GET /api/v1/tipo-documento/{id}/ 
-# consultar un dato en específico
-
-# POST /api/v1/tipo-documento/ 
-# crear un nuevo dato
-
-# PUT / PATCH /api/v1/tipo-documento/{id} 
-# actualizar completo o parcialmente un elemento
+        fields = [
+            "nombre",
+            "descripcion",
+            "estado",
+        ]

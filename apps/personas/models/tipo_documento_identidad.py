@@ -5,22 +5,22 @@ from apps.core.managers.active_manager import ActiveManager
 class TipoDocumentoIdentidad(ModeloBase):
 
     codigo = models.CharField(
-        verbose_name='Código', 
+        verbose_name="Código", 
         max_length=2,
         unique=True, 
-        help_text='Código oficial del tipo de documento según SUNAT o catálogo interno (ej: 01 = DNI, 06 = RUC)'
+        help_text="Código oficial del tipo de documento según SUNAT o catálogo interno (ej: 01 = DNI, 06 = RUC)"
     )
 
     nombre = models.CharField(
-        verbose_name='Documento de Identidad', 
+        verbose_name="Documento de Identidad", 
         max_length=50, 
-        help_text='Nombre corto del tipo de documento utilizado en operaciones del sistema (clientes, proveedores, etc.)'
+        help_text="Nombre corto del tipo de documento utilizado en operaciones del sistema (clientes, proveedores, etc.)"
     )
     
     descripcion = models.TextField(
-        verbose_name='Descripción', 
+        verbose_name="Descripción", 
         blank=True, 
-        help_text='Descripción opcional que detalla el uso o alcance del tipo de documento dentro del sistema'
+        help_text="Descripción opcional que detalla el uso o alcance del tipo de documento dentro del sistema"
     )
 
     objects = ActiveManager()

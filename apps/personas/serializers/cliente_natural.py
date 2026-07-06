@@ -13,11 +13,11 @@ class ClienteNaturalListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ClienteNatural
-        fields = (
-            'id',
-            'cliente',
-            'persona_natural',
-        )
+        fields = [
+            "id",
+            "cliente",
+            "persona_natural",
+        ]
 
 # GET /api/v1/clientes-naturales/{id}/ 
 # consultar un dato en específico
@@ -27,14 +27,14 @@ class ClienteNaturalDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ClienteNatural
-        fields = (
-            'id',
-            'cliente',
-            'persona_natural',
-            'created_at',
-            'updated_at',
-        )
-        read_only_fields = ('created_at', 'updated_at')
+        fields = [
+            "id",
+            "cliente",
+            "persona_natural",
+            "created_at",
+            "updated_at",
+        ]
+        read_only_fields = ("created_at", "updated_at")
 
 # POST /api/v1/clientes-naturales/ 
 # crear un nuevo dato
@@ -49,10 +49,10 @@ class ClienteNaturalCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ClienteNatural
-        fields = (
-            'cliente',
-            'persona_natural',
-        )
+        fields = [
+            "cliente",
+            "persona_natural",
+        ]
 
 # PUT / PATCH /api/v1/clientes-naturales/{id} 
 # actualizar completo o parcialmente un elemento
@@ -67,7 +67,7 @@ class ClienteNaturalUpdateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ClienteNatural
-        fields = (
-            'cliente',
-            'persona_natural',
-        )
+        fields = [
+            "cliente",
+            "persona_natural",
+        ]

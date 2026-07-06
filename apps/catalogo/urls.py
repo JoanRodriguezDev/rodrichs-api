@@ -4,9 +4,9 @@ from .views.categoria import CategoriaViewSet
 from .views.producto import ProductoViewSet
 
 router = DefaultRouter()
-router.register(r'categorias',CategoriaViewSet,basename='categorias')
-router.register(r'productos',ProductoViewSet,basename='productos')
+router.register(r"categorias",CategoriaViewSet,basename="categorias")
+router.register(r"productos",ProductoViewSet,basename="productos")
 
 urlpatterns = [
-    path('',include(router.urls)),
+    path("",include(router.urls)),
 ]

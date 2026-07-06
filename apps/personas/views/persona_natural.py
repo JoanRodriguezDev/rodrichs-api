@@ -1,5 +1,6 @@
 from apps.core.views import ModeloBaseViewSet
 from apps.core.permissions import TienePermisoRol
+from ..models.persona_natural import PersonaNatural
 from ..serializers.persona_natural import (
     PersonaNaturalListSerializer,
     PersonaNaturalDetailtSerializer,
@@ -8,6 +9,8 @@ from ..serializers.persona_natural import (
 )
 
 class PersonaNaturalViewSet(ModeloBaseViewSet):
+
+    queryset = PersonaNatural.objects.all()
 
     permission_classes = [TienePermisoRol]
 

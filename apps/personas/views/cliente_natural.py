@@ -1,5 +1,6 @@
 from apps.core.views import ModeloBaseViewSet
 from apps.core.permissions import TienePermisoRol
+from ..models.cliente_natural import ClienteNatural
 from ..serializers.cliente_natural import (
     ClienteNaturalListSerializer,
     ClienteNaturalDetailSerializer,
@@ -8,6 +9,8 @@ from ..serializers.cliente_natural import (
 )
 
 class ClienteNaturalViewSet(ModeloBaseViewSet):
+
+    queryset = ClienteNatural.objects.all()
 
     permission_classes = [TienePermisoRol]
 

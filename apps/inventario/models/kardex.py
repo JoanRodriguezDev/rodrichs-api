@@ -50,6 +50,7 @@ class Kardex(ModeloBase):
         related_name="kardex",
         help_text="Producto al que corresponde este registro del kárdex."
     )
+    
     objects = ActiveManager()
 
     all_objects = models.Manager()

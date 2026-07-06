@@ -12,17 +12,17 @@ from .views.proveedor_natural import ProveedorNaturalViewSet
 from .views.proveedor_juridico import ProveedorJuridicoViewSet
 
 router = DefaultRouter()
-router.register(r'tipo-documento',TipoDocumentoIdentidadViewSet,basename='tipo-documento')
-router.register(r'paises',PaisViewSet,basename='paises')
-router.register(r'personas',PersonaNaturalViewSet,basename='personas')
-router.register(r'empresas',PersonaJuridicaViewSet,basename='empresas')
-router.register(r'clientes',ClienteViewSet,basename='clientes')
-router.register(r'proveedores',ProveedorViewSet,basename='proveedores')
-router.register(r'clientes-naturales',ClienteNaturalViewSet,basename='clientes-naturales')
-router.register(r'clientes-empresas',ClienteJuridicoViewSet,basename='clientes-empresas')
-router.register(r'proveedores-naturales',ProveedorNaturalViewSet,basename='proveedores-naturales')
-router.register(r'proveedores-empresas',ProveedorJuridicoViewSet,basename='proveedores-empresas')
+router.register(r"tipo-documento",TipoDocumentoIdentidadViewSet,basename="tipo-documento")
+router.register(r"paises",PaisViewSet,basename="paises")
+router.register(r"personas",PersonaNaturalViewSet,basename="personas")
+router.register(r"empresas",PersonaJuridicaViewSet,basename="empresas")
+router.register(r"clientes",ClienteViewSet,basename="clientes")
+router.register(r"proveedores",ProveedorViewSet,basename="proveedores")
+router.register(r"clientes-naturales",ClienteNaturalViewSet,basename="clientes-naturales")
+router.register(r"clientes-empresas",ClienteJuridicoViewSet,basename="clientes-empresas")
+router.register(r"proveedores-naturales",ProveedorNaturalViewSet,basename="proveedores-naturales")
+router.register(r"proveedores-empresas",ProveedorJuridicoViewSet,basename="proveedores-empresas")
 
 urlpatterns = [
-    path('',include(router.urls)),
+    path("",include(router.urls)),
 ]

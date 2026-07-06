@@ -10,12 +10,12 @@ class EmpleadoListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Empleado
-        fields = (
-            'id',
-            'sueldo',
-            'estado',
-            'persona_natural',
-        )
+        fields = [
+            "id",
+            "sueldo",
+            "estado",
+            "persona_natural",
+        ]
 
 # GET /api/v1/empleado/{id}/ 
 # consultar un dato en específico
@@ -24,19 +24,19 @@ class EmpleadoDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Empleado
-        fields = (
-            'id',
-            'sueldo',
-            'estado',
-            'fecha_contratacion',
-            'fecha_termino',
-            'direccion',
-            'fecha_nacimiento',
-            'persona_natural',
-            'created_at',
-            'updated_at',
-        )
-        read_only_fields = ('created_at', 'updated_at')
+        fields = [
+            "id",
+            "sueldo",
+            "estado",
+            "fecha_contratacion",
+            "fecha_termino",
+            "direccion",
+            "fecha_nacimiento",
+            "persona_natural",
+            "created_at",
+            "updated_at",
+        ]
+        read_only_fields = ("created_at", "updated_at")
 
 # POST /api/v1/empleado/ 
 # crear un nuevo dato
@@ -47,15 +47,15 @@ class EmpleadoCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Empleado
-        fields = (
-            'sueldo',
-            'estado',
-            'fecha_contratacion',
-            'fecha_termino',
-            'direccion',
-            'fecha_nacimiento',
-            'persona_natural',
-        )
+        fields = [
+            "sueldo",
+            "estado",
+            "fecha_contratacion",
+            "fecha_termino",
+            "direccion",
+            "fecha_nacimiento",
+            "persona_natural",
+        ]
 
 # PUT / PATCH /api/v1/empleado/{id} 
 # actualizar completo o parcialmente un elemento
@@ -66,12 +66,12 @@ class EmpleadoUpdateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Empleado
-        fields = (
-            'sueldo',
-            'estado',
-            'fecha_contratacion',
-            'fecha_termino',
-            'direccion',
-            'fecha_nacimiento',
-            'persona_natural',
-        )
+        fields = [
+            "sueldo",
+            "estado",
+            "fecha_contratacion",
+            "fecha_termino",
+            "direccion",
+            "fecha_nacimiento",
+            "persona_natural",
+        ]

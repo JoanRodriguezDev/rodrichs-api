@@ -91,6 +91,14 @@ class Producto(ModeloBase):
         help_text="Categoría a la que pertenece el producto."
     )
 
+    descuento_global = models.DecimalField(
+        verbose_name="Descuento",
+        max_digits=12,
+        decimal_places=2,
+        default=0,
+        help_text="Descuento aplicado al producto dentro del sistema."
+    )
+
     objects = ActiveManager()
 
     all_objects = models.Manager()

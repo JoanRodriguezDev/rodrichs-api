@@ -5,10 +5,10 @@ from .views.almacen import AlmacenViewSet
 from .views.almacen_detalle import AlmacenDetalleViewSet
 
 router = DefaultRouter()
-router.register(r'sucursales',SucursalViewSet,basename='sucursales')
-router.register(r'almacenes',AlmacenViewSet,basename='sucualmacenesrsales')
-router.register(r'almacen-detalles',AlmacenDetalleViewSet,basename='almacen-detalles')
+router.register(r"sucursales",SucursalViewSet,basename="sucursales")
+router.register(r"almacenes",AlmacenViewSet,basename="sucualmacenesrsales")
+router.register(r"almacen-detalles",AlmacenDetalleViewSet,basename="almacen-detalles")
 
 urlpatterns = [
-    path('',include(router.urls)),
+    path("",include(router.urls)),
 ]

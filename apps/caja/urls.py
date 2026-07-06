@@ -4,9 +4,9 @@ from .views.caja import CajaViewSet
 from .views.caja_detalle import CajaDetalleViewSet
 
 router = DefaultRouter()
-router.register(r'cajas',CajaViewSet,basename='cajas')
-router.register(r'caja-detalles',CajaDetalleViewSet,basename='caja-detalles')
+router.register(r"cajas",CajaViewSet,basename="cajas")
+router.register(r"caja-detalles",CajaDetalleViewSet,basename="caja-detalles")
 
 urlpatterns = [
-    path('',include(router.urls)),
+    path("",include(router.urls)),
 ]

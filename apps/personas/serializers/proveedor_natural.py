@@ -14,11 +14,11 @@ class ProveedorNaturalListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProveedorNatural
-        fields = (
-            'id',
-            'proveedor',
-            'persona_natural',
-        )
+        fields = [
+            "id",
+            "proveedor",
+            "persona_natural",
+        ]
 
 # GET /api/v1/proveedores-naturales/{id}/ 
 # consultar un dato en específico
@@ -29,14 +29,14 @@ class ProveedorNaturalDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProveedorNatural
-        fields = (
-            'id',
-            'proveedor',
-            'persona_natural',
-            'created_at',
-            'updated_at',
-        )
-        read_only_fields = ('created_at', 'updated_at')
+        fields = [
+            "id",
+            "proveedor",
+            "persona_natural",
+            "created_at",
+            "updated_at",
+        ]
+        read_only_fields = ("created_at", "updated_at")
 
 # POST /api/v1/proveedores-naturales/ 
 # crear un nuevo dato
@@ -51,10 +51,10 @@ class ProveedorNaturalCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProveedorNatural
-        fields = (
-            'proveedor',
-            'persona_natural',
-        )
+        fields = [
+            "proveedor",
+            "persona_natural",
+        ]
 
 # PUT / PATCH /api/v1/proveedores-naturales/{id} 
 # actualizar completo o parcialmente un elemento
@@ -69,7 +69,7 @@ class ProveedorNaturalUpdateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProveedorNatural
-        fields = (
-            'proveedor',
-            'persona_natural',
-        )
+        fields = [
+            "proveedor",
+            "persona_natural",
+        ]

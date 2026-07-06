@@ -1,5 +1,6 @@
 from apps.core.views import ModeloBaseViewSet
 from apps.core.permissions import TienePermisoRol
+from ..models.permiso import Permiso
 from ..serializers.permiso import (
     PermisoListSerializer,
     PermisoDetailSerializer,
@@ -8,6 +9,8 @@ from ..serializers.permiso import (
 )
 
 class PermisoViewSet(ModeloBaseViewSet):
+
+    queryset = Permiso.objects.all()
 
     permission_classes = [TienePermisoRol]
 

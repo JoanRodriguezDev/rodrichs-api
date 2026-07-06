@@ -16,15 +16,15 @@ class VentaListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Venta
-        fields = (
-            'id',
-            'fecha',
-            'total',
-            'estado',
-            'caja',
-            'cliente',
-            'movimiento',
-        )
+        fields = [
+            "id",
+            "fecha",
+            "total",
+            "estado",
+            "caja",
+            "cliente",
+            "movimiento",
+        ]
 
 # GET /api/v1/ventas/{id}/ 
 # consultar un dato en específico
@@ -37,18 +37,18 @@ class VentaDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Venta
-        fields = (
-            'id',
-            'fecha',
-            'total',
-            'estado',
-            'caja',
-            'cliente',
-            'movimiento',
-            'created_at',
-            'updated_at',
-        )
-        read_only_fields = ('created_at', 'updated_at')
+        fields = [
+            "id",
+            "fecha",
+            "total",
+            "estado",
+            "caja",
+            "cliente",
+            "movimiento",
+            "created_at",
+            "updated_at",
+        ]
+        read_only_fields = ("created_at", "updated_at")
 
 # POST /api/v1/ventas/ 
 # crear un nuevo dato
@@ -59,14 +59,14 @@ class VentaCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Venta
-        fields = (
-            'fecha',
-            'total',
-            'estado',
-            'caja',
-            'cliente',
-            'movimiento',
-        )
+        fields = [
+            "fecha",
+            "total",
+            "estado",
+            "caja",
+            "cliente",
+            "movimiento",
+        ]
 
 # PUT / PATCH /api/v1/ventas/{id} 
 # actualizar completo o parcialmente un elemento
@@ -77,11 +77,11 @@ class VentaUpdateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Venta
-        fields = (
-            'fecha',
-            'total',
-            'estado',
-            'caja',
-            'cliente',
-            'movimiento',
-        )
+        fields = [
+            "fecha",
+            "total",
+            "estado",
+            "caja",
+            "cliente",
+            "movimiento",
+        ]

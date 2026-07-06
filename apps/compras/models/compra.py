@@ -48,6 +48,7 @@ class Compra(ModeloBase):
     )
 
     objects = ActiveManager()
+    
     all_objects = models.Manager()
 
     class Meta:

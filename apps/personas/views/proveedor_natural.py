@@ -1,5 +1,6 @@
 from apps.core.views import ModeloBaseViewSet
 from apps.core.permissions import TienePermisoRol
+from ..models.proveedor_natural import ProveedorNatural
 from ..serializers.proveedor_natural import (
     ProveedorNaturalListSerializer,
     ProveedorNaturalDetailSerializer,
@@ -8,6 +9,8 @@ from ..serializers.proveedor_natural import (
 )
 
 class ProveedorNaturalViewSet(ModeloBaseViewSet):
+
+    queryset = ProveedorNatural.objects.all()
 
     permission_classes = [TienePermisoRol]
 

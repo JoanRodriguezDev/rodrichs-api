@@ -1,5 +1,6 @@
 from apps.core.views import ModeloBaseViewSet
 from apps.core.permissions import TienePermisoRol
+from ..models.caja import Caja
 from ..serializers.caja import (
     CajaListSerializer,
     CajaDetailSerializer,
@@ -8,6 +9,8 @@ from ..serializers.caja import (
 )
 
 class CajaViewSet(ModeloBaseViewSet):
+
+    queryset = Caja.objects.all()
 
     permission_classes = [TienePermisoRol]
 

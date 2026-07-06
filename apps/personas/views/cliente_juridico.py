@@ -1,5 +1,6 @@
 from apps.core.views import ModeloBaseViewSet
 from apps.core.permissions import TienePermisoRol
+from ..models.cliente_juridico import ClienteJuridico
 from ..serializers.cliente_juridico import (
     ClienteJuridicoListSerializer,
     ClienteJuridicoDetailSerializer,
@@ -8,6 +9,8 @@ from ..serializers.cliente_juridico import (
 )
 
 class ClienteJuridicoViewSet(ModeloBaseViewSet):
+
+    queryset = ClienteJuridico.objects.all()
 
     permission_classes = [TienePermisoRol]
 

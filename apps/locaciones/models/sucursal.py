@@ -22,8 +22,8 @@ class Sucursal(ModeloBase):
         max_length=9,
         validators=[
             RegexValidator(
-                regex=r'^\d{9}$',
-                message='El número de teléfono debe contener exactamente 9 dígitos.'
+                regex=r"^\d{9}$",
+                message="El número de teléfono debe contener exactamente 9 dígitos."
             )
         ],
         help_text="Número de teléfono de contacto de la sucursal, sin espacios ni caracteres especiales."

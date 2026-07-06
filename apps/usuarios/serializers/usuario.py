@@ -15,13 +15,13 @@ class UsuarioListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Usuario
-        fields = (
-            'id',
-            'username',
-            'email',
-            'rol',
-            'empleado',
-        )
+        fields = [
+            "id",
+            "username",
+            "email",
+            "rol",
+            "empleado",
+        ]
 
 # GET /api/v1/usuarios/{id}/ 
 # consultar un dato en específico
@@ -32,16 +32,16 @@ class UsuarioDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Usuario
-        fields = (
-            'id',
-            'username',
-            'email',
-            'rol',
-            'empleado',
-            'created_at',
-            'updated_at',
-        )
-        read_only_fields = ('created_at', 'updated_at')
+        fields = [
+            "id",
+            "username",
+            "email",
+            "rol",
+            "empleado",
+            "created_at",
+            "updated_at",
+        ]
+        read_only_fields = ("created_at", "updated_at")
 
 # POST /api/v1/usuarios/ 
 # crear un nuevo dato
@@ -57,13 +57,13 @@ class UsuarioCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Usuario
-        fields = (
-            'username',
-            'email',
-            'password',
-            'rol',
-            'empleado',
-        )
+        fields = [
+            "username",
+            "email",
+            "password",
+            "rol",
+            "empleado",
+        ]
     
     def create(self, validated_data):
         password = validated_data.pop("password")
@@ -72,6 +72,7 @@ class UsuarioCreateSerializer(serializers.ModelSerializer):
             **validated_data
         )
         return user
+    
 # Serializer que sirve para heredar el método update y poder actualizar la contraseña del usuario de manera segura.
 class UsuarioPasswordMixin:
 
@@ -103,13 +104,13 @@ class UsuarioUpdateSerializer(UsuarioPasswordMixin,serializers.ModelSerializer):
 
     class Meta:
         model = Usuario
-        fields = (
-            'username',
-            'email',
-            'password',
-            'rol',
-            'empleado',
-        )
+        fields = [
+            "username",
+            "email",
+            "password",
+            "rol",
+            "empleado",
+        ]
 
 # PUT / PATCH /api/v1/usuarios/{id} --- PERO SOLO PARA PERFIL DE USUARIO
 # actualizar completo o parcialmente un elemento en PERFIL DE USUARIO
@@ -122,7 +123,7 @@ class UsuarioPerfilSerializer(UsuarioPasswordMixin,serializers.ModelSerializer):
 
     class Meta:
         model = Usuario
-        fields = (
-            'email',
-            'password',
-        )
+        fields = [
+            "email",
+            "password",
+        ]

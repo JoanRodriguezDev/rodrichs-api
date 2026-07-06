@@ -9,17 +9,17 @@ class ClienteNatural(ModeloBase):
     cliente = models.OneToOneField(
         Cliente,
         on_delete=models.PROTECT,
-        verbose_name='Cliente',
-        related_name='cliente_natural', 
-        help_text='Cliente base del sistema que actúa como entidad principal para un cliente de tipo natural.'
+        verbose_name="Cliente",
+        related_name="cliente_natural", 
+        help_text="Cliente base del sistema que actúa como entidad principal para un cliente de tipo natural."
     )
     
     persona_natural = models.OneToOneField(
         PersonaNatural,
         on_delete=models.PROTECT,
-        verbose_name='Persona natural',
-        related_name='cliente_natural',
-        help_text='Datos personales del cliente (nombres, apellidos, documento de identidad, contacto, etc.).'
+        verbose_name="Persona natural",
+        related_name="cliente_natural",
+        help_text="Datos personales del cliente (nombres, apellidos, documento de identidad, contacto, etc.)."
     )
 
     objects = ActiveManager()

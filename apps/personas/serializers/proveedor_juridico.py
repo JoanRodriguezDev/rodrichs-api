@@ -14,11 +14,11 @@ class ProveedorJuridicoListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProveedorJuridico
-        fields = (
-            'id',
-            'proveedor',
-            'persona_juridica',
-        )
+        fields = [
+            "id",
+            "proveedor",
+            "persona_juridica",
+        ]
 
 # GET /api/v1/proveedores-empresas/{id}/ 
 # consultar un dato en específico
@@ -29,14 +29,14 @@ class ProveedorJuridicoDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProveedorJuridico
-        fields = (
-            'id',
-            'proveedor',
-            'persona_juridica',
-            'created_at',
-            'updated_at',
-        )
-        read_only_fields = ('created_at', 'updated_at')
+        fields = [
+            "id",
+            "proveedor",
+            "persona_juridica",
+            "created_at",
+            "updated_at",
+        ]
+        read_only_fields = ("created_at", "updated_at")
 
 # POST /api/v1/proveedores-empresas/ 
 # crear un nuevo dato
@@ -51,10 +51,10 @@ class ProveedorJuridicoCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProveedorJuridico
-        fields = (
-            'proveedor',
-            'persona_juridica',
-        )
+        fields = [
+            "proveedor",
+            "persona_juridica",
+        ]
 
 # PUT / PATCH /api/v1/proveedores-empresas/{id} 
 # actualizar completo o parcialmente un elemento
@@ -69,7 +69,7 @@ class ProveedorJuridicoUpdateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProveedorJuridico
-        fields = (
-            'proveedor',
-            'persona_juridica',
-        )
+        fields = [
+            "proveedor",
+            "persona_juridica",
+        ]

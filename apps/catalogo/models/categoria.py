@@ -5,20 +5,21 @@ from apps.core.managers.active_manager import ActiveManager
 class Categoria(ModeloBase):
 
     nombre = models.CharField(
-        verbose_name='Nombre Categoría',
+        verbose_name="Nombre Categoría",
         max_length=50,
         unique=True,
-        help_text='Nombre único que identifica la categoría de los productos dentro del sistema.'
+        help_text="Nombre único que identifica la categoría de los productos dentro del sistema."
     )
 
     descripcion = models.CharField(
-        verbose_name='Descripción Categoría',
+        verbose_name="Descripción Categoría",
         max_length=255,
         blank=True,
-        help_text='Descripción opcional que proporciona información adicional sobre la categoría y su finalidad.'
+        help_text="Descripción opcional que proporciona información adicional sobre la categoría y su finalidad."
     )
 
     objects = ActiveManager()
+    
     all_objects = models.Manager()
 
     class Meta:

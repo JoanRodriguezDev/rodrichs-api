@@ -9,17 +9,17 @@ class ProveedorJuridico(ModeloBase):
     proveedor = models.OneToOneField(
         Proveedor, 
         on_delete=models.PROTECT, 
-        verbose_name='Proveedor',
-        related_name='proveedor_juridico', 
-        help_text='Proveedor base del sistema. Este registro representa a un proveedor de tipo jurídico dentro de las operaciones de compra.'
+        verbose_name="Proveedor",
+        related_name="proveedor_juridico", 
+        help_text="Proveedor base del sistema. Este registro representa a un proveedor de tipo jurídico dentro de las operaciones de compra."
     )
 
     persona_juridica = models.OneToOneField(
         PersonaJuridica, 
         on_delete=models.PROTECT, 
-        verbose_name='Persona Jurídica', 
-        related_name='proveedor_juridico', 
-        help_text='Información legal de la empresa proveedora (RUC, razón social, estado SUNAT, dirección fiscal, etc.).'
+        verbose_name="Persona Jurídica", 
+        related_name="proveedor_juridico", 
+        help_text="Información legal de la empresa proveedora (RUC, razón social, estado SUNAT, dirección fiscal, etc.)."
     )
 
     objects = ActiveManager()

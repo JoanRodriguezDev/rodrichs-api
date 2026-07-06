@@ -6,22 +6,22 @@ from apps.core.managers.active_manager import ActiveManager
 class Permiso(ModeloBase):
 
     codigo = models.CharField(
-        verbose_name='Código Permiso', 
+        verbose_name="Código Permiso", 
         max_length=100, 
         unique=True,
         validators=[
             RegexValidator(
-                regex=r'^[a-z]+\.[a-z]+$',
-                message='El código debe tener el formato modulo.accion en minúsculas (ej: producto.crear).'
+                regex=r"^[a-z]+\.[a-z]+$",
+                message="El código debe tener el formato modulo.accion en minúsculas (ej: producto.crear)."
             )
         ],
-        help_text='Identificador único del permiso utilizado por el sistema (ej: producto.crear, venta.editar).'
+        help_text="Identificador único del permiso utilizado por el sistema (ej: producto.crear, venta.editar)."
     )
 
     descripcion = models.CharField(
-        verbose_name='Descripción Permiso', 
+        verbose_name="Descripción Permiso", 
         max_length=255,
-        help_text='Describe la acción o funcionalidad que habilita este permiso dentro del sistema.'
+        help_text="Describe la acción o funcionalidad que habilita este permiso dentro del sistema."
     )
 
     objects = ActiveManager()

@@ -9,17 +9,17 @@ class ProveedorNatural(ModeloBase):
     proveedor = models.OneToOneField(
         Proveedor,
         on_delete=models.PROTECT,
-        verbose_name='Proveedor',
-        related_name='proveedor_natural',
-        help_text='Proveedor base del sistema. Este registro actúa como entidad principal para cualquier proveedor natural.'
+        verbose_name="Proveedor",
+        related_name="proveedor_natural",
+        help_text="Proveedor base del sistema. Este registro actúa como entidad principal para cualquier proveedor natural."
     )
 
     persona_natural = models.OneToOneField(
         PersonaNatural, 
         on_delete=models.PROTECT, 
-        verbose_name='Persona natural', 
-        related_name='proveedor_natural',
-        help_text='Datos personales del proveedor (DNI, nombres, apellidos, etc.) asociados a este proveedor natural.'
+        verbose_name="Persona natural", 
+        related_name="proveedor_natural",
+        help_text="Datos personales del proveedor (DNI, nombres, apellidos, etc.) asociados a este proveedor natural."
     )
 
     objects = ActiveManager()

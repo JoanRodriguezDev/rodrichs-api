@@ -18,66 +18,66 @@ class PersonaJuridica(ModeloBase):
         NO_HABIDO = "no_habido", "No Habido"
 
     ruc = models.CharField(
-        verbose_name='Número RUC',
+        verbose_name="Número RUC",
         max_length=20,
         unique=True,
         validators=[
             RegexValidator(
-                regex=r'^\d+$',
-                message='El número celular solo debe contener dígitos.'
+                regex=r"^\d+$",
+                message="El número celular solo debe contener dígitos."
             )
         ],
-        help_text='Número de RUC registrado en SUNAT que identifica de forma única a la empresa.'
+        help_text="Número de RUC registrado en SUNAT que identifica de forma única a la empresa."
     )
 
     razon_social = models.CharField(
-        verbose_name='Razón Social',
+        verbose_name="Razón Social",
         max_length=250,
-        help_text='Nombre legal de la empresa registrado ante SUNAT.'
+        help_text="Nombre legal de la empresa registrado ante SUNAT."
     )
 
     estado = models.CharField(
-        verbose_name='Estado de la empresa',
+        verbose_name="Estado de la empresa",
         max_length=40,
         choices=Estado.choices,
-        help_text='Estado tributario actual de la empresa según SUNAT (activo, suspendido, baja, etc.).'
+        help_text="Estado tributario actual de la empresa según SUNAT (activo, suspendido, baja, etc.)."
     )
 
     direccion = models.CharField(
-        verbose_name='Dirección',
+        verbose_name="Dirección",
         max_length=250,
-        help_text='Dirección fiscal registrada en SUNAT para efectos tributarios.'
+        help_text="Dirección fiscal registrada en SUNAT para efectos tributarios."
     )
 
     condicion = models.CharField(
-        verbose_name='Condición',
+        verbose_name="Condición",
         max_length=20,
         choices=Condicion.choices,
-        help_text='Condición de la empresa según SUNAT (habido o no habido en el domicilio fiscal).'
+        help_text="Condición de la empresa según SUNAT (habido o no habido en el domicilio fiscal)."
     )
 
     departamento = models.CharField(
-        verbose_name='Departamento',
+        verbose_name="Departamento",
         max_length=50,
-        help_text='Departamento del domicilio fiscal registrado en SUNAT.'
+        help_text="Departamento del domicilio fiscal registrado en SUNAT."
     )
 
     provincia = models.CharField(
-        verbose_name='Provincia',
+        verbose_name="Provincia",
         max_length=50,
-        help_text='Provincia del domicilio fiscal registrado en SUNAT.'
+        help_text="Provincia del domicilio fiscal registrado en SUNAT."
     )
 
     distrito = models.CharField(
-        verbose_name='Distrito',
+        verbose_name="Distrito",
         max_length=50,
-        help_text='Distrito del domicilio fiscal registrado en SUNAT.'
+        help_text="Distrito del domicilio fiscal registrado en SUNAT."
     )
     
     ubigeo_sunat = models.CharField(
-        verbose_name='Ubigeo SUNAT',
+        verbose_name="Ubigeo SUNAT",
         max_length=10,
-        help_text='Código ubigeo oficial utilizado por SUNAT para identificar la ubicación geográfica.'
+        help_text="Código ubigeo oficial utilizado por SUNAT para identificar la ubicación geográfica."
     )
 
     objects = ActiveManager()

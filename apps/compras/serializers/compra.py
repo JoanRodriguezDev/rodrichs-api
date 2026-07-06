@@ -13,14 +13,14 @@ class CompraListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Compra
-        fields = (
-            'id',
-            'fecha',
-            'total',
-            'estado',
-            'proveedor',
-            'movimiento',
-        )
+        fields = [
+            "id",
+            "fecha",
+            "total",
+            "estado",
+            "proveedor",
+            "movimiento",
+        ]
 
 # GET /api/v1/compraso/{id}/ 
 # consultar un dato en específico
@@ -31,17 +31,17 @@ class CompraDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Compra
-        fields = (
-            'id',
-            'fecha',
-            'total',
-            'estado',
-            'proveedor',
-            'movimiento',
-            'created_at',
-            'updated_at',
-        )
-        read_only_fields = ('created_at', 'updated_at')
+        fields = [
+            "id",
+            "fecha",
+            "total",
+            "estado",
+            "proveedor",
+            "movimiento",
+            "created_at",
+            "updated_at",
+        ]
+        read_only_fields = ("created_at", "updated_at")
 
 # POST /api/v1/compras/ 
 # crear un nuevo dato
@@ -52,13 +52,13 @@ class CompraCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Compra
-        fields = (
-            'fecha',
-            'total',
-            'estado',
-            'proveedor',
-            'movimiento',
-        )
+        fields = [
+            "fecha",
+            "total",
+            "estado",
+            "proveedor",
+            "movimiento",
+        ]
         
 # PUT / PATCH /api/v1/compras/{id} 
 # actualizar completo o parcialmente un elemento
@@ -69,10 +69,10 @@ class CompraUpdateSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Compra
-        fields = (
-            'fecha',
-            'total',
-            'estado',
-            'proveedor',
-            'movimiento',
-        )
+        fields = [
+            "fecha",
+            "total",
+            "estado",
+            "proveedor",
+            "movimiento",
+        ]

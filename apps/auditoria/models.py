@@ -101,4 +101,4 @@ class Auditoria(models.Model):
         verbose_name_plural = "Auditorias"
 
     def __str__(self):
-        return f"{self.accion} - {self.nombre_tabla or 'Login'} ({self.fecha:%d/%m/%Y %H:%M})"
+        return f"{self.accion} - {self.nombre_tabla or "Login"} ({self.fecha:%d/%m/%Y %H:%M})"

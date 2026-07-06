@@ -1,5 +1,6 @@
 from apps.core.views import ModeloBaseViewSet
 from apps.core.permissions import TienePermisoRol
+from ..models.pais import Pais
 from ..serializers.pais import (
     PaisListSerializer,
     PaisCreateSerializer,
@@ -8,6 +9,8 @@ from ..serializers.pais import (
 )
 
 class PaisViewSet(ModeloBaseViewSet):
+
+    queryset = Pais.objects.all()
 
     permission_classes = [TienePermisoRol]
 

@@ -15,14 +15,14 @@ class KardexListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Kardex
-        fields = (
-            'id',
-            'stock_anterior',
-            'stock_nuevo',
-            'movimiento',
-            'almacen',
-            'producto',
-        )
+        fields = [
+            "id",
+            "stock_anterior",
+            "stock_nuevo",
+            "movimiento",
+            "almacen",
+            "producto",
+        ]
 
 # GET /api/v1/kardex/{id}/ 
 # consultar un dato en específico
@@ -35,46 +35,46 @@ class KardexDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Kardex
-        fields = (
-            'id',
-            'stock_anterior',
-            'stock_nuevo',
-            'entrada',
-            'salida',
-            'movimiento',
-            'almacen',
-            'producto',
-            'created_at',
-            'updated_at',
-        )
-        read_only_fields = ('created_at', 'updated_at')
+        fields = [
+            "id",
+            "stock_anterior",
+            "stock_nuevo",
+            "entrada",
+            "salida",
+            "movimiento",
+            "almacen",
+            "producto",
+            "created_at",
+            "updated_at",
+        ]
+        read_only_fields = ("created_at", "updated_at")
 
 # POST /api/v1/kardex/ 
 # crear un nuevo dato
 class KardexCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Kardex
-        fields = (
-            'stock_anterior',
-            'stock_nuevo',
-            'entrada',
-            'salida',
-            'movimiento',
-            'almacen',
-            'producto',
-        )
+        fields = [
+            "stock_anterior",
+            "stock_nuevo",
+            "entrada",
+            "salida",
+            "movimiento",
+            "almacen",
+            "producto",
+        ]
 
 # PUT / PATCH /api/v1/kardex/{id} 
 # actualizar completo o parcialmente un elemento
 class KardexUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Kardex
-        fields = (
-            'stock_anterior',
-            'stock_nuevo',
-            'entrada',
-            'salida',
-            'movimiento',
-            'almacen',
-            'producto',
-        )
+        fields = [
+            "stock_anterior",
+            "stock_nuevo",
+            "entrada",
+            "salida",
+            "movimiento",
+            "almacen",
+            "producto",
+        ]
