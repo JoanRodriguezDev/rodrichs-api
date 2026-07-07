@@ -4,6 +4,7 @@ from ..models.cliente import Cliente
 from ..models.persona_juridica import PersonaJuridica
 from ..serializers.cliente import ClienteListSerializer
 from ..serializers.persona_juridica import PersonaJuridicaListSerializer
+from apps.core.serializers import ModeloBaseSerializer
 
 # GET /api/v1/clientes-empresas/ 
 # consultar todo los datos
@@ -36,9 +37,8 @@ class ClienteJuridicoDetailSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ("created_at", "updated_at")
 
-# POST /api/v1/clientes-empresas/ 
-# crear un nuevo dato
-class ClienteJuridicoCreateSerializer(serializers.ModelSerializer):
+class ClienteJuridicoBaseSerializer(ModeloBaseSerializer):
+
     cliente = serializers.PrimaryKeyRelatedField(
         queryset=Cliente.objects.all()
     )
@@ -49,25 +49,26 @@ class ClienteJuridicoCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ClienteJuridico
-        fields = [
+        fields = (
             "cliente",
             "persona_juridica",
-        ]
+        )
+
+    def validate_cliente(self, value):
+
+        if value.tipo != Cliente.Tipo.JURIDICO:
+            raise serializers.ValidationError(
+                "El cliente debe ser de tipo jurídico."
+            )
+
+        return value
+    
+# POST /api/v1/clientes-empresas/ 
+# crear un nuevo dato
+class ClienteJuridicoCreateSerializer(ClienteJuridicoBaseSerializer):
+    pass
 
 # PUT / PATCH /api/v1/clientes-empresas/{id} 
 # actualizar completo o parcialmente un elemento
-class ClienteJuridicoUpdateSerializer(serializers.ModelSerializer):
-    cliente = serializers.PrimaryKeyRelatedField(
-        queryset=Cliente.objects.all()
-    )
-
-    persona_juridica = serializers.PrimaryKeyRelatedField(
-        queryset=PersonaJuridica.objects.all()
-    )
-
-    class Meta:
-        model = ClienteJuridico
-        fields = [
-            "cliente",
-            "persona_juridica",
-        ]
+class ClienteJuridicoUpdateSerializer(ClienteJuridicoBaseSerializer):
+    pass

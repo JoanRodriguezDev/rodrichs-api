@@ -3,7 +3,7 @@ from apps.core.permissions import TienePermisoRol
 from ..models.persona_natural import PersonaNatural
 from ..serializers.persona_natural import (
     PersonaNaturalListSerializer,
-    PersonaNaturalDetailtSerializer,
+    PersonaNaturalDetailSerializer,
     PersonaNaturalCreateSerializer,
     PersonaNaturalUpdateSerializer,
 )
@@ -16,7 +16,7 @@ class PersonaNaturalViewSet(ModeloBaseViewSet):
 
     serializer_map = {
         "list": PersonaNaturalListSerializer,
-        "retrieve": PersonaNaturalDetailtSerializer,
+        "retrieve": PersonaNaturalDetailSerializer,
         "create": PersonaNaturalCreateSerializer,
         "update": PersonaNaturalUpdateSerializer,
         "partial_update": PersonaNaturalUpdateSerializer,

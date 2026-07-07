@@ -1,6 +1,6 @@
 from django.db import models
 from apps.core.models import ModeloBase
-from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator, MinValueValidator, MaxValueValidator
 from apps.core.managers.active_manager import ActiveManager
 
 class Pais(ModeloBase):
@@ -15,6 +15,12 @@ class Pais(ModeloBase):
         verbose_name="Código ISO 2",
         max_length=2,
         unique=True,
+        validators=[
+            RegexValidator(
+                regex=r"^[A-Z]{2}$",
+                message="Debe contener exactamente 2 letras mayúsculas."
+            )
+        ],
         help_text="Código ISO de 2 letras del país (ej: PE)."
     )
 
@@ -22,6 +28,12 @@ class Pais(ModeloBase):
         verbose_name="Código ISO 3",
         max_length=3,
         unique=True,
+        validators=[
+            RegexValidator(
+                regex=r"^[A-Z]{3}$",
+                message="Debe contener exactamente 3 letras mayúsculas."
+            )
+        ],
         help_text="Código ISO de 3 letras del país (ej: PER)."
     )
 
@@ -40,6 +52,10 @@ class Pais(ModeloBase):
     
     longitud_celular = models.PositiveSmallIntegerField(
         verbose_name="Longitud del número de celular",
+        validators=[
+            MinValueValidator(4),
+            MaxValueValidator(15),
+        ],
         help_text="Cantidad de dígitos que debe tener un número de celular en este país."
     )
 

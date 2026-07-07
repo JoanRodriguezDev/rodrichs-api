@@ -4,6 +4,7 @@ from ..models.cliente import Cliente
 from ..models.persona_natural import PersonaNatural
 from ..serializers.cliente import ClienteListSerializer
 from ..serializers.persona_natural import PersonaNaturalListSerializer
+from apps.core.serializers import ModeloBaseSerializer
 
 # GET /api/v1/clientes-naturales/ 
 # consultar todo los datos
@@ -36,9 +37,8 @@ class ClienteNaturalDetailSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ("created_at", "updated_at")
 
-# POST /api/v1/clientes-naturales/ 
-# crear un nuevo dato
-class ClienteNaturalCreateSerializer(serializers.ModelSerializer):
+class ClienteNaturalBaseSerializer(ModeloBaseSerializer):
+
     cliente = serializers.PrimaryKeyRelatedField(
         queryset=Cliente.objects.all()
     )
@@ -49,25 +49,26 @@ class ClienteNaturalCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ClienteNatural
-        fields = [
+        fields = (
             "cliente",
             "persona_natural",
-        ]
+        )
+
+    def validate_cliente(self, value):
+
+        if value.tipo != Cliente.Tipo.NATURAL:
+            raise serializers.ValidationError(
+                "El cliente debe ser de tipo natural."
+            )
+
+        return value
+    
+# POST /api/v1/clientes-naturales/ 
+# crear un nuevo dato
+class ClienteNaturalCreateSerializer(ClienteNaturalBaseSerializer):
+    pass
 
 # PUT / PATCH /api/v1/clientes-naturales/{id} 
 # actualizar completo o parcialmente un elemento
-class ClienteNaturalUpdateSerializer(serializers.ModelSerializer):
-    cliente = serializers.PrimaryKeyRelatedField(
-        queryset=Cliente.objects.all()
-    )
-
-    persona_natural = serializers.PrimaryKeyRelatedField(
-        queryset=PersonaNatural.objects.all()
-    )
-
-    class Meta:
-        model = ClienteNatural
-        fields = [
-            "cliente",
-            "persona_natural",
-        ]
+class ClienteNaturalUpdateSerializer(ClienteNaturalBaseSerializer):
+    pass

@@ -28,6 +28,12 @@ class PersonaNatural(ModeloBase):
     numero_documento = models.CharField(
         verbose_name="Número de Documento",
         max_length=20,
+        validators=[
+            RegexValidator(
+                regex=r"^[A-Za-z0-9]+$",
+                message="El número de documento solo puede contener letras y números."
+            )
+        ],
         help_text="Número del documento de identidad según el tipo seleccionado (DNI, CE, pasaporte, etc.)."
     )
 

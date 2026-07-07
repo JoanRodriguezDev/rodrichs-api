@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from ..models.cliente import Cliente
+from apps.core.serializers import ModeloBaseSerializer
 
 # GET /api/v1/clientes/ 
 # consultar todo los datos
@@ -24,20 +25,20 @@ class ClienteDetailSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ("created_at", "updated_at")
 
-# POST /api/v1/clientes/ 
-# crear un nuevo dato
-class ClienteCreateSerializer(serializers.ModelSerializer):
+class ClienteBaseSerializer(ModeloBaseSerializer):
+
     class Meta:
         model = Cliente
         fields = [
             "tipo",
         ]
 
+# POST /api/v1/clientes/ 
+# crear un nuevo dato
+class ClienteCreateSerializer(ClienteBaseSerializer):
+    pass
+
 # PUT / PATCH /api/v1/clientes/{id} 
 # actualizar completo o parcialmente un elemento
-class ClienteUpdateSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Cliente
-        fields = [
-            "tipo",
-        ]
+class ClienteUpdateSerializer(ClienteBaseSerializer):
+    pass

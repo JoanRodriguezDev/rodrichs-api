@@ -23,8 +23,8 @@ class PersonaJuridica(ModeloBase):
         unique=True,
         validators=[
             RegexValidator(
-                regex=r"^\d+$",
-                message="El número celular solo debe contener dígitos."
+                regex=r"^\d{11}$",
+                message="El RUC debe contener exactamente 11 dígitos."
             )
         ],
         help_text="Número de RUC registrado en SUNAT que identifica de forma única a la empresa."
